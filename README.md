@@ -1,6 +1,7 @@
 # Chart Whisperer
 
 **Chart Whisperer** is an AI-powered application that analyzes chart images, extracts data, and lets you ask questions about your charts using natural language.
+![image](https://github.com/user-attachments/assets/8737066b-2b8a-4f31-89b2-ecf4c07383af)
 
 ## Features
 
@@ -101,17 +102,21 @@ bash
 Copy
 Edit
 # Fork the repository
+```
 git clone https://github.com/AP4549/chart-whisperer.git
-
+```
 
 # Create a feature branch
 git checkout -b feature/amazing-feature
 
 # Commit your changes
+```
 git commit -m "Add some amazing feature"
-
+```
 # Push and open a PR
+```
 git push origin feature/amazing-feature
+```
 License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
