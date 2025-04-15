@@ -1,73 +1,121 @@
-# Welcome to your Lovable project
+# Chart Whisperer
 
-## Project info
+**Chart Whisperer** is an AI-powered application that analyzes chart images, extracts data, and lets you ask questions about your charts using natural language.
 
-**URL**: https://lovable.dev/projects/f2aebbe7-0236-4b79-9a6f-b1023145e563
+## Features
 
-## How can I edit this code?
+- 📊 Chart Image Analysis: Upload images of charts and graphs to extract underlying data  
+- 🔍 Data Extraction: Automatically identify titles, headers, and data points from images  
+- 💬 Natural Language Querying: Ask questions about your charts in plain English  
+- 🤖 Local LLM Integration: Connect to your local Ollama instance for privacy-focused AI processing  
+- 📈 Chart Visualization: Preview extracted data in clean, formatted tables  
+- 📥 CSV Export: Download extracted chart data as CSV files  
+- 🎤 Voice Commands: Use speech recognition for hands-free interaction  
 
-There are several ways of editing your application.
+## Tech Stack
 
-**Use Lovable**
+### Frontend
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/f2aebbe7-0236-4b79-9a6f-b1023145e563) and start prompting.
+- React with TypeScript  
+- Vite for fast builds and development  
+- Tailwind CSS for styling  
+- shadcn/ui for UI components  
+- Framer Motion for animations  
+- Sonner for toast notifications  
 
-Changes made via Lovable will be committed automatically to this repo.
+### Backend
 
-**Use your preferred IDE**
+- Flask for the API server  
+- Ollama for local LLM integration  
+- Pix2Struct for chart image analysis  
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Installation
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Prerequisites
 
-Follow these steps:
+- Node.js and npm  
+- Python 3.8 or higher  
+- Ollama installed locally (for LLM features)  
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Frontend Setup
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+cd frontend
+npm install
 npm run dev
+Backend Setup
+bash
+Copy
+Edit
+cd backend
+pip install -r requirements.txt
+python app.py
 ```
+Backend will run at http://localhost:5000
 
-**Edit a file directly in GitHub**
+Usage
+1. Upload a chart image
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+2. View extracted table data
 
-**Use GitHub Codespaces**
+3. Ask questions about the data
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Export to CSV
 
-## What technologies are used for this project?
+API Endpoints:-
+GET /status – Check if the backend is running
 
-This project is built with:
+GET /models – List available Ollama models
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+POST /extract – Extract data from a chart image
 
-## How can I deploy this project?
+POST /question – Ask a question about the extracted data
 
-Simply open [Lovable](https://lovable.dev/projects/f2aebbe7-0236-4b79-9a6f-b1023145e563) and click on Share -> Publish.
+Sample API Usage
+bash
+Copy
+Edit
+# Extract data
+```
+curl -X POST http://localhost:5000/extract -F "image=@chart.png"
+```
+# Ask a question
+```
+curl -X POST http://localhost:5000/question -H "Content-Type: application/json" \
+-d '{"question": "What is the highest value?", "data": {...}}'
+```
+Demo Mode
+No backend? Try demo mode using sample data.
 
-## Can I connect a custom domain to my Lovable project?
+System Requirements
+Modern web browser (Chrome, Firefox, Safari, Edge)
 
-Yes it is!
+8GB RAM recommended for Ollama models
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+GPU improves image analysis performance
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Contributing
+Contributions are welcome!
+
+bash
+Copy
+Edit
+# Fork the repository
+git clone https://github.com/AP4549/chart-whisperer.git
+
+
+# Create a feature branch
+git checkout -b feature/amazing-feature
+
+# Commit your changes
+git commit -m "Add some amazing feature"
+
+# Push and open a PR
+git push origin feature/amazing-feature
+License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+Acknowledgments
+Powered by Ollama
+
+Uses Pix2Struct
